@@ -14,7 +14,7 @@ public abstract class InventoryObject : ScriptableObject
 {
 
     public new string name;
-    public ObjectType type;
+    //public ObjectType type;
     public Sprite sprite;
 
 }
