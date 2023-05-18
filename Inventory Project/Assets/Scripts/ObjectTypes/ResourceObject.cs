@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceObject : MonoBehaviour
+public enum ResourceType
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    Construciton,
+    Smithing,
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+public class ResourceObject : InventoryObject
+{
+    public ResourceType type;
 }

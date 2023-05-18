@@ -13,7 +13,7 @@ public enum ConsumableType
 [CreateAssetMenu(fileName = "New Inventory Item", menuName = "New Inventory Item/Consumable")]
 public class ConsumableObject : InventoryObject
 {
-    public int chargeAmount;
+    public int restoreAmount;
     public ConsumableType type;
 
 

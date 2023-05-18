@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipmentObject : MonoBehaviour
+public enum EquipmentType
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    Armor,
+    Weapn,
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+public class EquipmentObject : InventoryObject
+{
+   public EquipmentType type;
 }

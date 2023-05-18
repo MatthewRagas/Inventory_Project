@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
 public class HealthPot : ConsumableObject
-{
-    public int healAmount;
+{    
 
-    public void Awake()
-    {
-        type = ConsumableType.healthPot;
-    }
+    //public void Awake()
+    //{
+    //    type = ConsumableType.healthPot;
+    //}
+
 }

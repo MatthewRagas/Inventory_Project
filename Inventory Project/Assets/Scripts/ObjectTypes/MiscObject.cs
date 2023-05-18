@@ -2,17 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MiscObject : MonoBehaviour
+[CreateAssetMenu(fileName = "New Inventory Item", menuName = "New Inventory Item/Misc")]
+public class MiscObject : InventoryObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

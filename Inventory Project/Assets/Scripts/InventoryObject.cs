@@ -13,8 +13,7 @@ public enum ObjectType
 public abstract class InventoryObject : ScriptableObject
 {
 
-    public new string name;
-    //public ObjectType type;
+    public new string name;    
     public Sprite sprite;
 
 }
