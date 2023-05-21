@@ -5,4 +5,9 @@ using UnityEngine;
 public class Armor : EquipmentObject
 {
     public int armor;
+
+    public void Awake()
+    {
+        type = EquipmentType.Armor;
+    }
 }

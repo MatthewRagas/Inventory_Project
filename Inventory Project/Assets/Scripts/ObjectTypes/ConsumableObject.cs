@@ -10,7 +10,6 @@ public enum ConsumableType
     staminaPot,
 }
 
-[CreateAssetMenu(fileName = "New Inventory Item", menuName = "New Inventory Item/Consumable")]
 public class ConsumableObject : InventoryObject
 {
     public int restoreAmount;

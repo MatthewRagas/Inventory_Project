@@ -6,4 +6,9 @@ using UnityEngine;
 public class Weapon : EquipmentObject
 {
     public int damage;
+
+    public void Awake()
+    {
+        type = EquipmentType.Weapn;
+    }
 }
