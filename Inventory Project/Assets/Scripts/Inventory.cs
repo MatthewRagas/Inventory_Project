@@ -12,10 +12,10 @@ public class Inventory : ScriptableObject
     {
         Container.Capacity = 6;
     }
-    public void AddItem(InventoryObject _item, int _amount)
+    public bool AddItem(InventoryObject _item, int _amount)
     {
         bool hasItem = false;
-        
+        bool addedItem = false;
         //checks if iteration of item is already in inventory
         for(int i = 0; i < Container.Count; i++)
         {            
@@ -23,14 +23,19 @@ public class Inventory : ScriptableObject
             {
                 Container[i].AddAmount(_amount);
                 hasItem = true;
+                addedItem = true;
                 break;
             }
         }
         
+        //check if there is space for new item, add to inventory
         if(!hasItem && Container.Count < Container.Capacity)
         {
             Container.Add(new InventorySlot(_item, _amount));
+            addedItem = true;
         }
+
+        return addedItem;
     }
 }
 
