@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         }
 
         /*Decrease inventory Capacity
-         *and drop items that no longer fit
+         *and remove items that no longer fit
          */
         if(Input.GetKeyDown(KeyCode.Comma))
         {
