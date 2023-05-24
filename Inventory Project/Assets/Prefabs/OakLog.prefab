@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5426159543167984882}
   - component: {fileID: 5426159543167984883}
   m_Layer: 0
-  m_Name: Item
+  m_Name: OakLog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c91dc8ec1d318f4f9fd0ea8f03d6e9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: d9b596ffa6af7574cb2d83906295ed48, type: 2}
 --- !u!1 &5426159544460100942
 GameObject:
   m_ObjectHideFlags: 0
