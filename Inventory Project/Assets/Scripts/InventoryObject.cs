@@ -7,13 +7,13 @@ public enum ObjectType
     Equipment,
     Consumable,
     Resource,
-    Misc,
+    Misc
 }
 
 public abstract class InventoryObject : ScriptableObject
 {
 
     public new string name;    
-    public Sprite sprite;
+    public Sprite sprite;    
 
 }
