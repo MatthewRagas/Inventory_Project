@@ -7,14 +7,18 @@ using UnityEngine;
 public class Inventory : ScriptableObject
 {
     public List<InventorySlot> Container = new List<InventorySlot>();
-
+    
+    public Inventory()
+    {
+        Container.Capacity = 6;
+    }
     public void AddItem(InventoryObject _item, int _amount)
     {
         bool hasItem = false;
-
-
+        
+        //checks if iteration of item is already in inventory
         for(int i = 0; i < Container.Count; i++)
-        {
+        {            
             if (Container[i].item == _item)
             {
                 Container[i].AddAmount(_amount);
@@ -22,9 +26,8 @@ public class Inventory : ScriptableObject
                 break;
             }
         }
-
-
-        if(!hasItem)
+        
+        if(!hasItem && Container.Count < Container.Capacity)
         {
             Container.Add(new InventorySlot(_item, _amount));
         }

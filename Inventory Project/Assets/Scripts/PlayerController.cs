@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         var item = other.GetComponent<Item>().item;
-        if(item)
+        if(item && inventory.Container.Capacity > inventory.Container.Count)
         {
             inventory.AddItem(item, 1);
             Destroy(other.gameObject);
