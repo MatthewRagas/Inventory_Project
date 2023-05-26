@@ -41,7 +41,7 @@ public class Inventory : ScriptableObject
 
 [System.Serializable]
 public class InventorySlot
-{
+{    
     public InventoryObject item;
     public int amount;
 
