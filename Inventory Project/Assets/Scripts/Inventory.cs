@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Default Inventory")]
 public class Inventory : ScriptableObject
 {
-    public List<InventorySlot> Container = new List<InventorySlot>();
+    public List<InventorySlot> Container = new List<InventorySlot>();    
     
     public Inventory()
     {
@@ -16,6 +17,7 @@ public class Inventory : ScriptableObject
     {
         bool hasItem = false;
         bool addedItem = false;
+
         //checks if iteration of item is already in inventory
         for(int i = 0; i < Container.Count; i++)
         {            
@@ -23,7 +25,7 @@ public class Inventory : ScriptableObject
             {
                 Container[i].AddAmount(_amount);
                 hasItem = true;
-                addedItem = true;
+                addedItem = true;                
                 break;
             }
         }
@@ -41,7 +43,7 @@ public class Inventory : ScriptableObject
 
 [System.Serializable]
 public class InventorySlot
-{    
+{
     public InventoryObject item;
     public int amount;
 

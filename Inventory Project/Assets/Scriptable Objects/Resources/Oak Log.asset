@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Oak Log
   m_EditorClassIdentifier: 
   name: 
-  sprite: {fileID: 0}
+  icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   type: 0

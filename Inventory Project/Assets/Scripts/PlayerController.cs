@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public Inventory inventory;
+    public Inventory inventory;    
 
     public void OnTriggerEnter(Collider other)
     {

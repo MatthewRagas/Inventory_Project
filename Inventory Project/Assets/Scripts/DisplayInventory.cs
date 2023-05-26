@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class DisplayInventory : MonoBehaviour
 {
+    public Transform itemsParent;
+
     public Inventory inventory;
 
-    public int X_SPACE_BETWEEN_ITEMS;
-    public int Y_SPACE_BETWEEN_ITEMS;
-    public int NUMBER_OF_COLUMNS;
-    Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
+    InventorySlotUI[] slots;
+    //public Item item;
+    //public Image icon;
 
     // Start is called before the first frame update
     void Start()
     {
-        CreateDisplay();
+        slots = itemsParent.GetComponentsInChildren<InventorySlotUI>();
     }
 
     // Update is called once per frame
@@ -22,14 +24,20 @@ public class DisplayInventory : MonoBehaviour
     {
         //UpdateDisplay();
     }
-
-    public void CreateDisplay()
+    
+    public void UpdateUI()
     {
-        for(int i = 0; i < inventory.Container.Count; i++)
+        for(int i = 0; i < slots.Length; i++)
         {
-            //var obj = Instantiate(inventory.Container[i].item.sprite, Vector3.zero, Quaternion.identity, transform);
-            Instantiate(inventory.Container[i].item.sprite);
-            //obj.GetComponent
+            if(i < inventory.Container.Count)
+            {
+                slots[i].AddItem(inventory.Container[i]);
+            }
+            else
+            {
+                slots[i].ClearSlot();
+            }
         }
     }
+
 }
