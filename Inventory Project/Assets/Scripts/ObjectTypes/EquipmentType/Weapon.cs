@@ -10,5 +10,6 @@ public class Weapon : EquipmentObject
     public void Awake()
     {
         type = EquipmentType.Weapn;
+        
     }
 }

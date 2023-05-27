@@ -39,6 +39,41 @@ public class Inventory : ScriptableObject
 
         return addedItem;
     }
+
+    public List<InventorySlot> SortType(List<InventorySlot> _container)
+    {
+        List<InventorySlot> templist = _container;
+
+        return Container;
+    }
+
+    public List<InventorySlot> SortAZ(List<InventorySlot> _container)
+    {
+
+
+        return Container;
+    }
+
+    public List<InventorySlot> SortZA(List<InventorySlot> _container)
+    {
+
+
+        return Container;
+    }
+
+    public List<InventorySlot> SortQuantityHL(List<InventorySlot> _container)
+    {
+
+
+        return Container;
+    }
+
+    public List<InventorySlot> SortQuantityLH(List<InventorySlot> _container)
+    {
+
+
+        return Container;
+    }
 }
 
 [System.Serializable]

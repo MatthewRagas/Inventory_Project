@@ -13,11 +13,5 @@ public enum ConsumableType
 public class ConsumableObject : InventoryObject
 {
     public int restoreAmount;
-    public ConsumableType type;
-
-
-    //public void Awake()
-    //{
-    //    type = ObjectType.Consumable;
-    //}
+    public ConsumableType type;    
 }
