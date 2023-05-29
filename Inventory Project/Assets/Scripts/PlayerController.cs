@@ -64,6 +64,14 @@ public class PlayerController : MonoBehaviour
         {
             inventory.SortType(inventory, 4);
         }
+        if(Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            inventory.SortAZ(inventory);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            inventory.SortZA(inventory);
+        }
     }
 
     //Removes item at highest index

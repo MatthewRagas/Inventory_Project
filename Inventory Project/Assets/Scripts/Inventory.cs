@@ -126,18 +126,95 @@ public class Inventory : ScriptableObject
         return _inventory.Container;
     }
 
-    public List<InventorySlot> SortAZ(List<InventorySlot> _container)
+    public List<InventorySlot> SortAZ(Inventory _inventory)
     {
+        InventorySlot slotA;
+        InventorySlot slotB;
 
+        for(int i = 0; i < _inventory.Container.Count - 1; i++)
+        {
+            if (i <= 0)
+            {
+                i = 0;
+            }
+            else if (i >= _inventory.Container.Count - 1)
+            {
+                i = _inventory.Container.Count - 1;
+            }
+            slotA = _inventory.Container[i];
+            slotB = _inventory.Container[i + 1];
 
-        return Container;
+            if (slotA.item.name[0] > slotB.item.name[0])
+            {
+                _inventory.Container[i] = slotB;
+                _inventory.Container[i + 1] = slotA;
+                i -= 2;
+            }
+            else if(slotB.item.name[0] == slotA.item.name[0])
+            {
+                for (int n = 0; n < slotA.item.name.Length; n++)
+                {
+                    if (slotB.item.name[n] < slotA.item.name[n])
+                    {
+                        _inventory.Container[i] = slotB;
+                        _inventory.Container[i + 1] = slotA;
+                        break;
+                    }
+                }
+                i++;
+            }
+        }
+
+        return _inventory.Container;
     }
 
-    public List<InventorySlot> SortZA(List<InventorySlot> _container)
+    public List<InventorySlot> SortZA(Inventory _inventory)
     {
+        InventorySlot slotA;
+        InventorySlot slotB;
 
+        for (int i = 0; i < _inventory.Container.Count - 1; i++)
+        {
+            
+            if (i <= 0)
+            {
+                i = 0;
+            }
+            
+            slotA = _inventory.Container[i];
+            slotB = _inventory.Container[i + 1];
 
-        return Container;
+            if (slotA.item.name[0] < slotB.item.name[0])
+            {
+                _inventory.Container[i] = slotB;
+                _inventory.Container[i + 1] = slotA;
+                i -= 2;
+            }
+            else if (slotB.item.name[0] == slotA.item.name[0])
+            {
+                for(int n = 0; n < slotA.item.name.Length; n++)
+                {
+                    if (slotB.item.name[n] > slotA.item.name[n])
+                    {
+                        _inventory.Container[i] = slotB;
+                        _inventory.Container[i + 1] = slotA;
+                        break;
+                    }
+                    else if(slotB.item.name[n] < slotA.item.name[n])
+                    {                        
+                        break;
+                    }
+
+                }
+                //i++;
+                if (i >= _inventory.Container.Count - 1)
+                {
+                    i = _inventory.Container.Count - 1;
+                }
+            }
+        }
+
+        return _inventory.Container;
     }
 
     public List<InventorySlot> SortQuantityHL(List<InventorySlot> _container)
