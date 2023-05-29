@@ -5,5 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Inventory Item", menuName = "New Inventory Item/Misc")]
 public class MiscObject : InventoryObject
 {
-    
+    private void Awake()
+    {
+        typeID = 4;
+    }
 }

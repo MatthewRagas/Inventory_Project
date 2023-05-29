@@ -29,13 +29,14 @@ public class PlayerController : MonoBehaviour
         }
 
         /*Decrease inventory Capacity
-         *and remove items that no longer fit
-         */
-        if(Input.GetKeyDown(KeyCode.Comma))
+        *and remove items that no longer fit*/
+        if (Input.GetKeyDown(KeyCode.Comma))
         {
             if(inventory.Container.Capacity == inventory.Container.Count)
             {
                 int i = inventory.Container.Count - 1;
+                //checks if an item has been removed from the list to decrease the count
+                //Capacity of List can not be lower than the count.
                 if(RemoveItem())
                 {
                     inventory.Container.Capacity -= 1;
@@ -45,6 +46,23 @@ public class PlayerController : MonoBehaviour
             {
                 inventory.Container.Capacity -= 1;
             }            
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            inventory.SortType(inventory, 1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            inventory.SortType(inventory, 2);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            inventory.SortType(inventory, 3);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            inventory.SortType(inventory, 4);
         }
     }
 

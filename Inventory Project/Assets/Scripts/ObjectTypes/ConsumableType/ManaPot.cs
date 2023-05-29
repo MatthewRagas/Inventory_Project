@@ -8,5 +8,6 @@ public class ManaPot : ConsumableObject
     public void Awake()
     {
         type = ConsumableType.manaPot;
+        typeID = 1;
     }
 }

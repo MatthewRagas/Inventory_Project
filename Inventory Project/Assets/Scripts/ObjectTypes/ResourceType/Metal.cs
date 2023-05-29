@@ -11,5 +11,6 @@ public class Metal : ResourceObject
     public void Awake()
     {
         type = ResourceType.Smithing;
+        typeID = 3;
     }
 }

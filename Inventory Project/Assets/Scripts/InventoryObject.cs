@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum ObjectType
-{
-    Equipment,
-    Consumable,
-    Resource,
+{    
     Misc
 }
 
@@ -15,6 +12,6 @@ public abstract class InventoryObject : ScriptableObject
 
     public new string name;
     public Sprite icon;
-    //public ObjectType type;
+    public int typeID;    
 
 }

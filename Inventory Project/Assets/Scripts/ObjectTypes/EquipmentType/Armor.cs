@@ -8,6 +8,7 @@ public class Armor : EquipmentObject
 
     public void Awake()
     {
-        type = EquipmentType.Armor;        
+        type = EquipmentType.Armor;
+        typeID = 2;
     }
 }

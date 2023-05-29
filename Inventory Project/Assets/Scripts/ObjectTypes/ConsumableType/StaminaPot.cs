@@ -8,5 +8,6 @@ public class StaminaPot : ConsumableObject
     public void Awake()
     {
         type = ConsumableType.staminaPot;
+        typeID = 1;
     }
 }

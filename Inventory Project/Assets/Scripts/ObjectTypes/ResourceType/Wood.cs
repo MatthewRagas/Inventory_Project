@@ -9,5 +9,6 @@ public class Wood : ResourceObject
     public void Awake()
     {
         type = ResourceType.Construciton;
+        typeID = 3;
     }
 }

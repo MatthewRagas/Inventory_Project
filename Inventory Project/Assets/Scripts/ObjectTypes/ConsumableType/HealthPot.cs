@@ -9,6 +9,7 @@ public class HealthPot : ConsumableObject
     public void Awake()
     {
         type = ConsumableType.healthPot;
+        typeID = 1;
     }
 
 }

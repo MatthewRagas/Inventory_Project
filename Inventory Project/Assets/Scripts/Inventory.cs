@@ -11,7 +11,7 @@ public class Inventory : ScriptableObject
     
     public Inventory()
     {
-        Container.Capacity = 6;
+        Container.Capacity = 9;
     }
     public bool AddItem(InventoryObject _item, int _amount)
     {
@@ -40,11 +40,90 @@ public class Inventory : ScriptableObject
         return addedItem;
     }
 
-    public List<InventorySlot> SortType(List<InventorySlot> _container)
-    {
-        List<InventorySlot> templist = _container;
+    public List<InventorySlot> SortType(Inventory _inventory, int _typeID)
+    {        
+        InventorySlot slotA;
+        InventorySlot slotB;
 
-        return Container;
+        int isConsumable = 1;
+         int isEquipment = 2;
+          int isResource = 3;
+              int isMisc = 4;
+
+        //iterate though inventory list
+        for (int i = 0; i < _inventory.Container.Count - 1; i++)
+        {
+            if (i <= 0)
+            {
+                i = 0;
+            }
+            slotA = _inventory.Container[i];
+            slotB = _inventory.Container[i + 1];
+
+            //check if sorting by consumable type
+            if (_typeID == isConsumable)
+            {
+
+                if (slotA.item.typeID == _typeID && _typeID == slotB.item.typeID)
+                {
+                    i++;
+                }
+                else if (slotB.item.typeID == _typeID && slotA.item.typeID != _typeID)
+                {
+                    _inventory.Container[i] = slotB;
+                    _inventory.Container[i + 1] = slotA;
+                    i -= 2;
+                    
+                }
+            }
+            //check if sorting by equipment type
+            else if(_typeID == isEquipment)
+            {
+                if (slotA.item.typeID == _typeID && _typeID == slotB.item.typeID)
+                {
+                    i++;
+                }
+                else if (slotB.item.typeID == _typeID && slotA.item.typeID != _typeID)
+                {
+                    _inventory.Container[i] = slotB;
+                    _inventory.Container[i + 1] = slotA;
+                    i -= 2;
+                    
+                }
+            }
+            //check if sorting by resource type
+            else if(_typeID == isResource)
+            {
+                if (slotA.item.typeID == _typeID && _typeID == slotB.item.typeID)
+                {
+                    i++;
+                }
+                else if (slotB.item.typeID == _typeID && slotA.item.typeID != _typeID)
+                {
+                    _inventory.Container[i] = slotB;
+                    _inventory.Container[i + 1] = slotA;
+                    i -= 2;
+                    
+                }
+            }
+            //check if sorting by misc type
+            else if(_typeID == isMisc)
+            {
+                if (slotA.item.typeID == _typeID && _typeID == slotB.item.typeID)
+                {
+                    i++;
+                }
+                else if (slotB.item.typeID == _typeID && slotA.item.typeID != _typeID)
+                {
+                    _inventory.Container[i] = slotB;
+                    _inventory.Container[i + 1] = slotA;
+                    i -= 2;
+                    
+                }
+            }
+        }
+
+        return _inventory.Container;
     }
 
     public List<InventorySlot> SortAZ(List<InventorySlot> _container)
