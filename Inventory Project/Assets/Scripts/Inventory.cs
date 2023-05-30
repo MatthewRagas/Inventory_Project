@@ -206,7 +206,7 @@ public class Inventory : ScriptableObject
                     }
 
                 }
-                //i++;
+                
                 if (i >= _inventory.Container.Count - 1)
                 {
                     i = _inventory.Container.Count - 1;
@@ -217,18 +217,58 @@ public class Inventory : ScriptableObject
         return _inventory.Container;
     }
 
-    public List<InventorySlot> SortQuantityHL(List<InventorySlot> _container)
+    public List<InventorySlot> SortQuantityHL(Inventory _inventory)
     {
+        InventorySlot slotA;
+        InventorySlot slotB;
 
+        for (int i = 0; i < _inventory.Container.Count - 1; i++)
+        {
 
-        return Container;
+            if (i <= 0)
+            {
+                i = 0;
+            }
+
+            slotA = _inventory.Container[i];
+            slotB = _inventory.Container[i + 1];
+            
+            if(slotA.amount < slotB.amount)
+            {
+                _inventory.Container[i] = slotB;
+                _inventory.Container[i + 1] = slotA;
+                i -= 2;
+            }
+        }
+
+            return _inventory.Container;
     }
 
-    public List<InventorySlot> SortQuantityLH(List<InventorySlot> _container)
+    public List<InventorySlot> SortQuantityLH(Inventory _inventory)
     {
+        InventorySlot slotA;
+        InventorySlot slotB;
 
+        for (int i = 0; i < _inventory.Container.Count - 1; i++)
+        {
 
-        return Container;
+            if (i <= 0)
+            {
+                i = 0;
+            }
+
+            slotA = _inventory.Container[i];
+            slotB = _inventory.Container[i + 1];
+
+            if (slotA.amount > slotB.amount)
+            {
+                _inventory.Container[i] = slotB;
+                _inventory.Container[i + 1] = slotA;
+                i -= 2;
+            }
+        }
+
+        return _inventory.Container;
     }
 }
 

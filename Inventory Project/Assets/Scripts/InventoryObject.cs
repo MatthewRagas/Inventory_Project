@@ -8,10 +8,7 @@ public enum ObjectType
 }
 
 public abstract class InventoryObject : ScriptableObject
-{
-
-    //public new string name;
+{    
     public Sprite icon;
-    public int typeID;    
-
+    public int typeID;
 }

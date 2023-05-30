@@ -68,9 +68,17 @@ public class PlayerController : MonoBehaviour
         {
             inventory.SortAZ(inventory);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
+        if(Input.GetKeyDown(KeyCode.Alpha6))
         {
             inventory.SortZA(inventory);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            inventory.SortQuantityHL(inventory);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            inventory.SortQuantityLH(inventory);
         }
     }
 
