@@ -27,8 +27,13 @@ public class Inventory : ScriptableObject, ISerializationCallbackReceiver
     {
         Container.Capacity = 9;
     }
+
+    /*AddItem checks if a picked up item can be added and if it can will either
+     stack it with copy items or place it in a new inventory slot if there is space.
+    the function returns a boolean of true or false letting me know whether or not there
+    was an item added.*/
     public bool AddItem(InventoryObject _item, int _amount)
-    {
+    {       
         bool hasItem = false;
         bool addedItem = false;
 
@@ -51,9 +56,10 @@ public class Inventory : ScriptableObject, ISerializationCallbackReceiver
             addedItem = true;
         }
 
+        //return true or false whether or not an item has or has not been added to inventory.
         return addedItem;
     }
-
+    //sorts by type. All sorting functions are model the same as this but with out need for typID variable
     public List<InventorySlot> SortType(Inventory _inventory, int _typeID)
     {        
         InventorySlot slotA;
@@ -67,21 +73,25 @@ public class Inventory : ScriptableObject, ISerializationCallbackReceiver
         //iterate though inventory list
         for (int i = 0; i < _inventory.Container.Count - 1; i++)
         {
+            //prevents from checking out of bounds
             if (i <= 0)
             {
                 i = 0;
             }
+
             slotA = _inventory.Container[i];
             slotB = _inventory.Container[i + 1];
 
             //check if sorting by consumable type
             if (_typeID == isConsumable)
             {
-
+                //if item type is the same skip up two slots
                 if (slotA.item.typeID == _typeID && _typeID == slotB.item.typeID)
                 {
                     i++;
                 }
+                //if item further down the list if of correct item type, swap and move
+                //backwards to check previous slots with new correct item
                 else if (slotB.item.typeID == _typeID && slotA.item.typeID != _typeID)
                 {
                     _inventory.Container[i] = slotB;
@@ -292,13 +302,14 @@ public class Inventory : ScriptableObject, ISerializationCallbackReceiver
 
     public void OnAfterDeserialize()
     {
-        //throw new System.NotImplementedException();
+        
         for (int i = 0; i < Container.Count; i++)
         {
             Container[i].item = database.GetItem[Container[i].ID];
         }
     }
 
+    //save to JSON file
     public void Save()
     {
         string saveData = JsonUtility.ToJson(this, true);
@@ -308,6 +319,7 @@ public class Inventory : ScriptableObject, ISerializationCallbackReceiver
         file.Close();
     }
 
+    //Load inventory
     public void Load()
     {
         if(File.Exists(string.Concat(Application.persistentDataPath, savePath)))
@@ -323,8 +335,11 @@ public class Inventory : ScriptableObject, ISerializationCallbackReceiver
 [System.Serializable]
 public class InventorySlot
 {
+    //Different from typeID, used for loading which item it is specifically
     public int ID;
+    //the item in the slot
     public InventoryObject item;
+    //amount of item in the slot
     public int amount;
 
     //Constructor
@@ -335,6 +350,7 @@ public class InventorySlot
         amount = _amount;
     }
 
+    //add an amount of an item to the slot
     public void AddAmount(int _amount)
     {
         amount += _amount;

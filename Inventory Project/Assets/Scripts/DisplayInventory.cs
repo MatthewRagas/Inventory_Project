@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
+
+//this is more UI, I gave up on this part
 public class DisplayInventory : MonoBehaviour
 {
     public Transform itemsParent;

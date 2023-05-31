@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//different equipment types
 public enum EquipmentType
 {
     Armor,
@@ -10,5 +11,6 @@ public enum EquipmentType
 
 public class EquipmentObject : InventoryObject
 {
-   public EquipmentType type;
+    //the variables that all equipment types share
+    public EquipmentType type;
 }

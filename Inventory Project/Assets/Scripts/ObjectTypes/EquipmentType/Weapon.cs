@@ -6,7 +6,7 @@ using UnityEngine;
 public class Weapon : EquipmentObject
 {
     public int damage;
-
+    //assigning weapon type variables
     public void Awake()
     {
         type = EquipmentType.Weapn;

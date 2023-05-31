@@ -5,7 +5,7 @@ using UnityEngine;
 public class Armor : EquipmentObject
 {
     public int armor;
-
+    //assigning armor type variables
     public void Awake()
     {
         type = EquipmentType.Armor;

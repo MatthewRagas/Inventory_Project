@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Different resource types
 public enum ResourceType
 {
     Construciton,
@@ -10,5 +11,6 @@ public enum ResourceType
 
 public class ResourceObject : InventoryObject
 {
+    //the variables that all resource types share
     public ResourceType type;
 }

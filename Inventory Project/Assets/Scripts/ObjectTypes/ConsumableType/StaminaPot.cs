@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Inventory Item", menuName = "New Inventory Item/Consumable/Stamina Pot")]
 public class StaminaPot : ConsumableObject
 {
+    //assigning staminapot variables
     public void Awake()
     {
         type = ConsumableType.staminaPot;

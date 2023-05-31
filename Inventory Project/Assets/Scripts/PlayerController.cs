@@ -25,12 +25,15 @@ public class PlayerController : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        //
+        //variable = to the item of the object we are colliding with
         var item = other.GetComponent<Item>().item;
+        //if the object we are colliding with has an item attatched, perform task
         if(item)
         {
+            //calls add item function
             if(inventory.AddItem(item, 1))
             {
+                //destroy game object in scene if the item has been added to inventory
                 Destroy(other.gameObject);
             }            
         }
@@ -50,9 +53,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Comma))
         {
             if(inventory.Container.Capacity == inventory.Container.Count)
-            {
-                int i = inventory.Container.Count - 1;
-                //checks if an item has been removed from the list to decrease the count
+            {                
+                //checks if an item has been removed from the list to decrease the count.
                 //Capacity of List can not be lower than the count.
                 if(RemoveItem())
                 {
@@ -65,34 +67,42 @@ public class PlayerController : MonoBehaviour
             }            
         }
 
+        //call Sort items by consumable type when alpha1 is pressed
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             inventory.SortType(inventory, 1);
         }
+        //call Sort items by equipment type when alpha2 is pressed
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             inventory.SortType(inventory, 2);
         }
+        //call Sort items by resource type when alpha3 is pressed
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             inventory.SortType(inventory, 3);
         }
+        //call Sort items by Misc type when alpha4 is pressed
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             inventory.SortType(inventory, 4);
         }
-        if(Input.GetKeyDown(KeyCode.Alpha5))
+        //call Sort items Alphabetically when alpha5 is pressed
+        if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             inventory.SortAZ(inventory);
         }
-        if(Input.GetKeyDown(KeyCode.Alpha6))
+        //call Sort items backwards alphabetically when alpha6 is pressed
+        if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             inventory.SortZA(inventory);
         }
-        if(Input.GetKeyDown(KeyCode.Alpha7))
+        //call Sort items by High > Low quantity when alpha7 is pressed
+        if (Input.GetKeyDown(KeyCode.Alpha7))
         {
             inventory.SortQuantityHL(inventory);
         }
+        //call Sort items by Low > High quantity when alpha8 is pressed
         if (Input.GetKeyDown(KeyCode.Alpha8))
         {
             inventory.SortQuantityLH(inventory);
@@ -105,6 +115,7 @@ public class PlayerController : MonoBehaviour
         bool itemRemoved = false;
         //holds previous value of count
         int previousCount = inventory.Container.Count;
+        //Function used through List functionality
         inventory.Container.RemoveAt(inventory.Container.Count - 1);
 
         //if count is now less than previousCount number
