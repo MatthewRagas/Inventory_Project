@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     //variable allowing us to hold any kind of inventory we want to make.
     public Inventory inventory;
+    public float moveSpeed = 1;
 
     public void Start()
     {
@@ -41,9 +42,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        
+        //player movement
+        var movementHorizontal = Input.GetAxis("Horizontal");
+        var movementVertical = Input.GetAxis("Vertical");
+        transform.position += new Vector3(movementHorizontal, 0, 0) * Time.deltaTime * moveSpeed;
+        transform.position += new Vector3(0, 0, movementVertical) * Time.deltaTime * moveSpeed;
+
+
         //Increase ivnentory Capacity
-        if(Input.GetKeyDown(KeyCode.Period))
+        if (Input.GetKeyDown(KeyCode.Period))
         {
             inventory.Container.Capacity += 1;
         }

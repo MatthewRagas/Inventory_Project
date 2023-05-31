@@ -19,7 +19,7 @@ public class Inventory : ScriptableObject, ISerializationCallbackReceiver
         database = (InventoryDataBaseObject)AssetDatabase.LoadAssetAtPath(
             "Assets/Resources/Inventory Database.asset", typeof(InventoryDataBaseObject));
 #else
-        database = Resources.Load<InventoryDataBaseObject>("Database");
+        database = Resources.Load<InventoryDataBaseObject>("Inventory Database");
 #endif
     }
     
