@@ -25,7 +25,7 @@ public class Inventory : ScriptableObject, ISerializationCallbackReceiver
     
     public Inventory()
     {
-        Container.Capacity = 9;
+        Container.Capacity = 6;
     }
 
     /*AddItem checks if a picked up item can be added and if it can will either
