@@ -113,7 +113,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha8))
         {
             inventory.SortQuantityLH(inventory);
-        }                
+        }    
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     //Removes item at highest index
