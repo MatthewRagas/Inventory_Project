@@ -4,11 +4,28 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //variable allowing us to hold any kind of inventory we want to make.
+    public Inventory inventory;
 
-    public Inventory inventory;    
+    public void Start()
+    {
+        //Loads previously saved inventory
+        inventory.Load();
+        //Sorts inventory alphabetically for default sorting method
+        inventory.SortAZ(inventory);
+    }
+
+    private void OnApplicationQuit()
+    {        
+        //saves inventory before closing application
+        inventory.Save();
+        //clears out inventory container after saving
+        inventory.Container.Clear();
+    }
 
     public void OnTriggerEnter(Collider other)
     {
+        //
         var item = other.GetComponent<Item>().item;
         if(item)
         {
