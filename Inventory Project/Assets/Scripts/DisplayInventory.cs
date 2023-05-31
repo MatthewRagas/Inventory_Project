@@ -25,21 +25,17 @@ public class DisplayInventory : MonoBehaviour
     void Update()
     {
         //UpdateDisplay();
+        UpdateUI();
     }
     
     public void UpdateUI()
     {
-        for(int i = 0; i < slots.Length; i++)
+        GetComponentInChildren<Text>().text = null;
+        for (int i = 0; i < inventory.Container.Count; i++)
         {
-            if(i < inventory.Container.Count)
-            {
-                slots[i].AddItem(inventory.Container[i]);
-            }
-            else
-            {
-                slots[i].ClearSlot();
-            }
+            this.GetComponentInChildren<Text>().text += inventory.Container[i].item.name + ": " + inventory.Container[i].amount + "\n";
         }
+         
     }
 
 }

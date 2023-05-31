@@ -598,12 +598,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: Template3D
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: C:\Users\mjrag\Desktop\Inventory Project\Inventory_Project\Inventory
-    Project\Assets\WSATestCertificate.pfx
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
   metroCertificateSubject: DefaultCompany
   metroCertificateIssuer: DefaultCompany
-  metroCertificateNotAfter: 80c7d93272b2da01
+  metroCertificateNotAfter: 803878f577b2da01
   metroApplicationDescription: Template_3D
   wsaImages: {}
   metroTileShortName: Inventory Project
